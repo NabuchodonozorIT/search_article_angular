@@ -1,0 +1,16 @@
+.header-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: start;
+  align-content: center;
+  div {
+    display: flex;
+    &.button-content-header{
+      margin-top: 5px;
+      height: 35px;
+    }
+  }
+}

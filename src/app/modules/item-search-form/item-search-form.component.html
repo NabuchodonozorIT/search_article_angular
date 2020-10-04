@@ -1,9 +1,3 @@
-<input type="text"
-       [formControl]="filter"
-       placeholder="Filter items...">
-
-<ul *ngIf="showSearchContent">
-  <li *ngFor="let item of filteredItems$ | async">
-    {{item.name}}
-  </li>
-</ul>
+<div class="input-group">
+  <input type="text" class="form-control" [formControl]="filter" placeholder="Filter items...">
+</div>
