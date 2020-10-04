@@ -1,6 +1,6 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
-import {ArticleData} from '../item-search-form/articleData';
+import {ArticleData} from '../../model/articleData';
 import {ItemSearchService} from '../../services/item-search-service.service';
 
 @Component({
@@ -18,7 +18,6 @@ export class ItemListComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.filteredItemsListSubscription = this.itemSearch.filteredItemsListSubscription.subscribe((filteredItems) => {
-      console.log('HUIHIHIHI 2', filteredItems);
       this.filteredItems$ = filteredItems;
     });
   }

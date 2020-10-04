@@ -1,0 +1,36 @@
+:host {
+  flex: 0 0 300px !important;
+  margin-bottom: 0.625rem !important;
+  overflow: hidden;
+
+  .card {
+    border: none;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+  }
+}
+
+
+:host:hover .card-img-overlay {
+  top: 100%;
+}
+
+.btn .btn-primary {
+  width: 100% !important;
+}
+
+.button-card {
+  width: 100%;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    span {
+      opacity: 0.6;
+    }
+  }
+}

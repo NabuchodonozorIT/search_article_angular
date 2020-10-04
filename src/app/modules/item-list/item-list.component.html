@@ -1,4 +1,4 @@
-<div class="card-columns">
+<div class="card-deck">
   <app-item-card [item]="item" class="card"
                  [routerLink]="['item', item.id]"
                  *ngFor="let item of filteredItems$ | async ">

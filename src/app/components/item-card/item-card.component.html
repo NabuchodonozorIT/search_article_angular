@@ -1,0 +1,18 @@
+<div class="card">
+  <div>
+    <img class="card-img-top" [src]="item.image" alt="Card image cap">
+    <app-promo [promo]="item.promo"></app-promo>
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}}</h5>
+      <p class="card-text">{{item.description}}</p>
+    </div>
+  </div>
+
+  <div>
+    <app-star-rating [rating]="item.rating"></app-star-rating>
+    <button [disabled]="!item.active"
+            class="button-card btn {{item.active ? 'btn-primary' : 'btn-secondary'}}">
+      {{buttonLabel}}
+    </button>
+  </div>
+</div>

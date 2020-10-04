@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, combineLatest, Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {ArticleData} from '../modules/item-search-form/articleData';
+import {ArticleData} from '../model/articleData';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,6 @@ export class ItemSearchService {
 
   public searchData(filter: any, param: string): void {
     this.getData(param).then((data) => {
-      console.log('### data ###', data);
       return data;
     }).then(items => {
       this.items$ = of(items);

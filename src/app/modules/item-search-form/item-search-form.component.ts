@@ -5,7 +5,7 @@ import {ItemSearchService} from '../../services/item-search-service.service';
 @Component({
   selector: 'app-item-search-form',
   templateUrl: './item-search-form.component.html',
-  styleUrls: []
+  styleUrls: ['./item-search-form.component.scss']
 })
 export class ItemSearchFormComponent implements OnInit, OnDestroy {
 
