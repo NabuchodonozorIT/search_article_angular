@@ -3,10 +3,27 @@
 }
 
 .unchecked {
-  color: gray
+  color: gray;
 }
 
 .star-content {
   display: flex;
+  flex-direction: row-reverse;
   margin: 10px 0;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+
+  > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+
+    &.checked:before, &.checked ~ span:before {
+      content: "\2605";
+      position: absolute;
+    }
+  }
 }
