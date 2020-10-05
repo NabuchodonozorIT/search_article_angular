@@ -25,7 +25,7 @@ export class ItemSearchService {
       return data;
     }).then(items => {
       this.items$ = of(items);
-      this.filterSearch$ = filters.filterSearch.valueChanges.pipe(startWith('Gorgeous Wooden'));
+      this.filterSearch$ = filters.filterSearch.valueChanges.pipe(startWith(''));
       this.filterActive$ = filters.filterActive.valueChanges.pipe(startWith(false));
       this.filterPromo$ = filters.filterPromo.valueChanges.pipe(startWith(false));
       return combineLatest(this.items$, this.filterSearch$, this.filterActive$, this.filterPromo$).pipe(
@@ -36,7 +36,6 @@ export class ItemSearchService {
         }),
       );
     }).then(filteredData => {
-      console.log('NEXT');
       this.filteredItemsListSubscription.next(filteredData);
     });
   }

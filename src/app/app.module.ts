@@ -11,7 +11,8 @@ import {ItemListComponent} from './components/item-list/item-list.component';
 import {ItemCardComponent} from './components/item-card/item-card.component';
 import {NavBarComponent} from './modules/nav-bar/nav-bar.component';
 import {StarRatingComponent} from './components/star-rating/star-rating.component';
-import { PromoComponent } from './components/promo/promo.component';
+import {PromoComponent} from './components/promo/promo.component';
+import {PaginationComponent} from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PromoComponent } from './components/promo/promo.component';
     ItemCardComponent,
     NavBarComponent,
     StarRatingComponent,
-    PromoComponent
+    PromoComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

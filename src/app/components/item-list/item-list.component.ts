@@ -9,6 +9,7 @@ import {ItemSearchService} from '../../services/item-search-service.service';
   styleUrls: ['./item-list.component.scss']
 })
 export class ItemListComponent implements OnInit, OnDestroy {
+  pageOfItems: Array<ArticleData>;
 
   public filteredItems$: Observable<ArticleData[]>;
   private filteredItemsListSubscription: Subscription;
@@ -24,6 +25,10 @@ export class ItemListComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.filteredItemsListSubscription.unsubscribe();
+  }
+
+  public onChangePage(pageOfItems: Array<ArticleData>): void {
+    this.pageOfItems = pageOfItems;
   }
 
 }
