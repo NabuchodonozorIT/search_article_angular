@@ -9,30 +9,34 @@ import {ArticleData} from '../model/articleData';
 export class ItemSearchService {
 
   public filteredItemsListSubscription = new BehaviorSubject(null);
+  public latestData: ArticleData[];
 
   constructor() {
   }
 
-  public latestData: ArticleData[];
-
   private retApiURL = 'https://join-tsh-api-staging.herokuapp.com/';
-  private filter$: Observable<string>;
+  private filterSearch$: Observable<string>;
+  private filterActive$: Observable<boolean>;
+  private filterPromo$: Observable<boolean>;
   private items$: Observable<Observable<ArticleData[]>>;
 
-  public searchData(filter: any, param: string): void {
+  public searchData(filters: any, param: string): void {
     this.getData(param).then((data) => {
       return data;
     }).then(items => {
       this.items$ = of(items);
-      this.filter$ = filter.valueChanges.pipe(startWith('Gorgeous Wooden'));
-      return combineLatest(this.items$, this.filter$).pipe(
+      this.filterSearch$ = filters.filterSearch.valueChanges.pipe(startWith('Gorgeous Wooden'));
+      this.filterActive$ = filters.filterActive.valueChanges.pipe(startWith(false));
+      this.filterPromo$ = filters.filterPromo.valueChanges.pipe(startWith(false));
+      return combineLatest(this.items$, this.filterSearch$, this.filterActive$, this.filterPromo$).pipe(
         // tslint:disable-next-line:no-shadowed-variable
-        map(([items, filterString]) => {
+        map(([items, filterString, filterActive, filterPromo]) => {
           return items['filter'](
-            item => item.name.toLowerCase().indexOf(filterString.toLowerCase()) !== -1);
+            item => item.name.toLowerCase().indexOf(filterString.toLowerCase()) !== -1 && this.activePromoFilter(filterActive, filterPromo, item));
         }),
       );
     }).then(filteredData => {
+      console.log('NEXT');
       this.filteredItemsListSubscription.next(filteredData);
     });
   }
@@ -42,5 +46,17 @@ export class ItemSearchService {
     const data = await resp.json();
     this.latestData = data.items;
     return this.latestData;
+  }
+
+  private activePromoFilter(filterActive: boolean, filterPromo: boolean, item: ArticleData): boolean {
+    let ruleForActive = true;
+    let ruleForPromo = true;
+    if (filterActive) {
+      ruleForActive = item.active;
+    }
+    if (filterPromo) {
+      ruleForPromo = item.promo;
+    }
+    return ruleForActive && ruleForPromo;
   }
 }
