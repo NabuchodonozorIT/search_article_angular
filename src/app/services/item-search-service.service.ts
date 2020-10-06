@@ -9,7 +9,6 @@ import {ArticleData} from '../model/articleData';
 export class ItemSearchService {
 
   public filteredItemsListSubscription = new BehaviorSubject(null);
-  public latestData: ArticleData[];
 
   constructor() {
   }
@@ -22,7 +21,7 @@ export class ItemSearchService {
 
   public searchData(filters: any, param: string): void {
     this.getData(param).then((data) => {
-      return data;
+      return data.items;
     }).then(items => {
       this.items$ = of(items);
       this.filterSearch$ = filters.filterSearch.valueChanges.pipe(startWith(''));
@@ -42,9 +41,7 @@ export class ItemSearchService {
 
   public async getData(param): Promise<any> {
     const resp = await fetch(this.retApiURL + param);
-    const data = await resp.json();
-    this.latestData = data.items;
-    return this.latestData;
+    return await resp.json();
   }
 
   private activePromoFilter(filterActive: boolean, filterPromo: boolean, item: ArticleData): boolean {

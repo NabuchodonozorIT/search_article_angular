@@ -19,7 +19,9 @@ export class ItemListComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.filteredItemsListSubscription = this.itemSearch.filteredItemsListSubscription.subscribe((filteredItems) => {
-      this.filteredItems$ = filteredItems;
+      if (!!filteredItems) {
+        this.filteredItems$ = filteredItems;
+      }
     });
   }
 

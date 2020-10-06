@@ -2,7 +2,6 @@
   <div class="card-body">
     <div class="card-deck">
       <app-item-card [item]="item" class="card"
-                     [routerLink]="['item', item.id]"
                      *ngFor="let item of pageOfItems ">
       </app-item-card>
     </div>

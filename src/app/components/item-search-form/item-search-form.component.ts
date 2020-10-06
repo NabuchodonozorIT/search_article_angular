@@ -17,7 +17,7 @@ export class ItemSearchFormComponent implements OnInit {
   public filterPromo: FormControl;
 
   public ngOnInit(): void {
-    this.filterSearch = new FormControl('Gorgeous Wooden');
+    this.filterSearch = new FormControl('');
     this.filterActive = new FormControl(false);
     this.filterPromo = new FormControl(false);
     this.itemSearch.searchData(this.getFiltersForm(), 'product');

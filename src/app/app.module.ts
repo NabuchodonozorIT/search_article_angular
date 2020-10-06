@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ItemSearchComponent} from './components/item-search/item-search.component';
 import {ItemSearchFormComponent} from './components/item-search-form/item-search-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ItemSearchService} from './services/item-search-service.service';
 import {ItemListComponent} from './components/item-list/item-list.component';
 import {ItemCardComponent} from './components/item-card/item-card.component';
@@ -13,6 +13,13 @@ import {NavBarComponent} from './modules/nav-bar/nav-bar.component';
 import {StarRatingComponent} from './components/star-rating/star-rating.component';
 import {PromoComponent} from './components/promo/promo.component';
 import {PaginationComponent} from './components/pagination/pagination.component';
+import {ShowDetailsComponent} from './components/show-details/show-details.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {DialogService} from './services/dialog.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,14 +31,22 @@ import {PaginationComponent} from './components/pagination/pagination.component'
     NavBarComponent,
     StarRatingComponent,
     PromoComponent,
-    PaginationComponent
+    PaginationComponent,
+    ShowDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
-  providers: [ItemSearchService],
+  providers: [ItemSearchService,
+    DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

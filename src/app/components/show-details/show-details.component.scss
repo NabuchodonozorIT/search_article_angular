@@ -1,0 +1,32 @@
+.ng-dialog-close {
+  cursor: pointer;
+  margin-left: -24px;
+
+  &:before {
+    background: transparent;
+    color: #bbb;
+    content: "\00D7";
+    font-size: 26px;
+    font-weight: 400;
+    height: 30px;
+    line-height: 26px;
+    right: 3px;
+    text-align: center;
+    top: 3px;
+    width: 30px;
+  }
+
+  &:hover:before, &:active:before {
+    color: #777;
+  }
+}
+
+.show-details-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  align-content: center;
+}

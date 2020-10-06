@@ -11,6 +11,7 @@
   <div>
     <app-star-rating [rating]="item.rating"></app-star-rating>
     <button [disabled]="!item.active"
+            (click)="showDetails(item.id)"
             class="button-card btn {{item.active ? 'btn-primary' : 'btn-secondary'}}">
       {{buttonLabel}}
     </button>
