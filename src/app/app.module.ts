@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {ItemSearchComponent} from './components/item-search/item-search.component';
 import {ItemSearchFormComponent} from './components/item-search-form/item-search-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ItemSearchService} from './services/item-search-service.service';
@@ -20,11 +19,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {DialogService} from './services/dialog.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EmptyListComponent } from './components/empty-list/empty-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemSearchComponent,
     ItemSearchFormComponent,
     ItemListComponent,
     ItemCardComponent,
@@ -32,7 +31,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     StarRatingComponent,
     PromoComponent,
     PaginationComponent,
-    ShowDetailsComponent
+    ShowDetailsComponent,
+    EmptyListComponent
   ],
   imports: [
     BrowserModule,

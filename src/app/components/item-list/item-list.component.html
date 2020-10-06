@@ -1,13 +1,17 @@
-<div class="card text-center m-3">
-  <div class="card-body">
-    <div class="card-deck">
-      <app-item-card [item]="item" class="card"
-                     *ngFor="let item of pageOfItems ">
-      </app-item-card>
+<div class="card item-list-content">
+  <div [ngSwitch]="view">
+    <div class="card-body">
+      <div class="card-deck item-list" *ngSwitchCase="'card-deck'">
+        <app-item-card [item]="item" class="card"
+                       *ngFor="let item of pageOfItems">
+        </app-item-card>
+      </div>
+      <div class="card-deck empty-list" *ngSwitchCase="'none'">
+        <app-empty-list></app-empty-list>
+      </div>
     </div>
   </div>
   <div class="card-footer pb-0 pt-3">
     <app-pagination [items]="filteredItems$ | async" (changePage)="onChangePage($event)"></app-pagination>
   </div>
 </div>
-

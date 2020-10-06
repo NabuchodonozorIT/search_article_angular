@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ItemSearchComponent } from './item-search.component';
+import { EmptyListComponent } from './empty-list.component';
 
-describe('ItemSearchComponent', () => {
-  let component: ItemSearchComponent;
-  let fixture: ComponentFixture<ItemSearchComponent>;
+describe('EmptyListComponent', () => {
+  let component: EmptyListComponent;
+  let fixture: ComponentFixture<EmptyListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemSearchComponent ]
+      declarations: [ EmptyListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ItemSearchComponent);
+    fixture = TestBed.createComponent(EmptyListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
