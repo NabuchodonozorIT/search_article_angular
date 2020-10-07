@@ -1,5 +1,5 @@
 <div class="card item-list-content">
-  <div [ngSwitch]="view">
+  <div [ngSwitch]="view" class="item-list-grid">
     <div class="card-body">
       <div class="card-deck item-list" *ngSwitchCase="'card-deck'">
         <app-item-card [item]="item" class="card"

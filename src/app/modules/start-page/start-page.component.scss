@@ -1,0 +1,39 @@
+.login-page {
+
+  height: 100vh;
+  div {
+    height: 100%;
+  }
+
+  .login-page-left-content {
+    background: url('../../../assets/men_walking_in_the_bridge.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .login-content {
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    align-content: stretch;
+    max-width: 884px;
+  }
+
+  .join-tsh-io-link {
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    position: absolute;
+    top: 24px;
+  }
+
+  .log-in-button {
+    width: 100%;
+  }
+
+}

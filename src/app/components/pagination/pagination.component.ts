@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges, ViewContainerRef, ViewChild} from '@angular/core';
 // @ts-ignore
 import paginate from 'jw-paginate';
 import {ArticleData} from '../../model/articleData';
@@ -12,13 +12,15 @@ export class PaginationComponent implements OnInit, OnChanges {
   @Output() public changePage = new EventEmitter<any>(true);
   @Input() public items: Array<ArticleData>;
   @Input() public initialPage = 1;
-  @Input() public pageSize = 6;
+  @Input() public pageSize = 12;
   @Input() public maxPages = 10;
 
   public pager: any = {};
   public pageOfItems: Array<ArticleData>;
+  public innerWidth: any;
 
   public ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
     if (this.items && this.items.length) {
       this.setPage(this.initialPage);
     }
@@ -34,7 +36,8 @@ export class PaginationComponent implements OnInit, OnChanges {
     if (!this.items) {
       return;
     }
-    this.pager = paginate(this.items.length, page, this.pageSize, this.maxPages);
+    const maxPageInRow = Math.floor(this.innerWidth / 400);
+    this.pager = paginate(this.items.length, page, maxPageInRow >= 3 ? maxPageInRow : this.pageSize, this.maxPages);
     this.pageOfItems = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1);
     this.changePage.emit(this.pageOfItems);
   }

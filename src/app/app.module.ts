@@ -20,6 +20,8 @@ import {DialogService} from './services/dialog.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EmptyListComponent } from './components/empty-list/empty-list.component';
+import { StartPageComponent } from './modules/start-page/start-page.component';
+import { SearchComponent } from './modules/search/search.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { EmptyListComponent } from './components/empty-list/empty-list.component
     PromoComponent,
     PaginationComponent,
     ShowDetailsComponent,
-    EmptyListComponent
+    EmptyListComponent,
+    StartPageComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
