@@ -28,10 +28,11 @@ export class ItemSearchService {
       this.filterActive$ = filters.filterActive.valueChanges.pipe(startWith(false));
       this.filterPromo$ = filters.filterPromo.valueChanges.pipe(startWith(false));
       return combineLatest(this.items$, this.filterSearch$, this.filterActive$, this.filterPromo$).pipe(
-        // tslint:disable-next-line:no-shadowed-variable
-        map(([items, filterString, filterActive, filterPromo]) => {
-          return items['filter'](
-            item => item.name.toLowerCase().indexOf(filterString.toLowerCase()) !== -1 && this.activePromoFilter(filterActive, filterPromo, item));
+        map(([shopArticle, filterString, filterActive, filterPromo]) => {
+          // @ts-ignore
+          return (shopArticle as Array).filter(
+            item => item.name.toLowerCase().indexOf(filterString.toLowerCase()) !== -1 &&
+              this.activePromoFilter(filterActive, filterPromo, item));
         }),
       );
     }).then(filteredData => {

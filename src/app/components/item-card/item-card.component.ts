@@ -15,11 +15,11 @@ export class ItemCardComponent implements OnInit {
   @Input('item')
   set setAlbum(item) {
     this.item = item;
-    this.buttonLabel = this.getButtonLabel(item.active,);
+    this.buttonLabel = this.getButtonLabel(item.active);
   }
 
   constructor(private itemSearch: ItemSearchService,
-              public dialogService: DialogService) {
+              private dialogService: DialogService) {
   }
 
   public ngOnInit(): void {

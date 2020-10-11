@@ -6,6 +6,23 @@ export class AppPage {
   }
 
   getTitleText(): Promise<string> {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+    return element(by.css('app-root .login-page-header')).getText() as Promise<string>;
   }
+
+  getUserName(): any {
+    return element(by.css('app-root .username'));
+  }
+
+  getSearchInput(): any {
+    return element(by.css('app-root .search-input'));
+  }
+
+  getPassworde(): any {
+    return element(by.css('app-root .password'));
+  }
+
+  clickLogInButton(): Promise<any>{
+    return element(by.css('.log-in-button')).click() as Promise<any>;
+  }
+
 }

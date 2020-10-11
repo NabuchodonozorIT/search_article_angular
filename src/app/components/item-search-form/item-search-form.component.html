@@ -1,9 +1,16 @@
 <div class="input-group">
   <div>
-    <input type="text" class="form-control" [formControl]="filterSearch" placeholder="Filter items...">
+    <input type="text" class="form-control search-input" [formControl]="filterSearch" placeholder="Filter items...">
   </div>
   <div class="check-box-content">
-    <input type="checkbox" [formControl]="filterActive"><label>Active</label>
-    <input type="checkbox" [formControl]="filterPromo"><label>Promo</label>
+    <label class="container">Active
+      <input type="checkbox" [formControl]="filterActive">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Promo
+      <input type="checkbox" [formControl]="filterPromo">
+      <span class="checkmark"></span>
+    </label>
   </div>
 </div>
+

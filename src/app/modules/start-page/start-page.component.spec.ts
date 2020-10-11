@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StartPageComponent } from './start-page.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('StartPageComponent', () => {
   let component: StartPageComponent;
@@ -8,7 +9,8 @@ describe('StartPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StartPageComponent ]
+      declarations: [ StartPageComponent ],
+      imports: [RouterTestingModule],
     })
     .compileComponents();
   });

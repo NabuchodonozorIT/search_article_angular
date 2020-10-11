@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import {browser, by, element, logging} from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -8,9 +8,36 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display Login page', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('angular-interview-starter-ts app is running!');
+    expect(page.getTitleText()).toEqual('Login');
+  });
+
+  it('the user name field should be filled', () => {
+    const userName = page.getUserName();
+    userName.sendKeys('User');
+    expect(userName.getAttribute('value'))
+      .toEqual('User');
+  });
+
+  it('the password field should be filled', () => {
+    const password = page.getPassworde();
+    password.sendKeys('password');
+    expect(password.getAttribute('value'))
+      .toEqual('password');
+  });
+
+  it('should click the Log in button', () => {
+    page.clickLogInButton();
+    expect(browser.getCurrentUrl())
+      .toEqual(browser.baseUrl + 'search');
+  });
+
+  it('the search field should be filled by Handmade Cotton Towels', () => {
+    const search = page.getSearchInput();
+    search.sendKeys('Handmade Cotton Towels');
+    expect(search.getAttribute('value'))
+      .toEqual('Handmade Cotton Towels');
   });
 
   afterEach(async () => {

@@ -12,7 +12,7 @@ export class PaginationComponent implements OnInit, OnChanges {
   @Output() public changePage = new EventEmitter<any>(true);
   @Input() public items: Array<ArticleData>;
   @Input() public initialPage = 1;
-  @Input() public pageSize = 12;
+  @Input() public pageSize = 10;
   @Input() public maxPages = 10;
 
   public pager: any = {};
@@ -36,8 +36,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     if (!this.items) {
       return;
     }
-    const maxPageInRow = Math.floor(this.innerWidth / 400);
-    this.pager = paginate(this.items.length, page, maxPageInRow >= 3 ? maxPageInRow : this.pageSize, this.maxPages);
+    this.pager = paginate(this.items.length, page, this.pageSize, this.maxPages);
     this.pageOfItems = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1);
     this.changePage.emit(this.pageOfItems);
   }

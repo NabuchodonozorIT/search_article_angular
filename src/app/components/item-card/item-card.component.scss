@@ -13,6 +13,22 @@
   }
 }
 
+@media (max-width: 700px) {
+  :host {
+    flex: 0 0 90% !important;
+    margin-bottom: 0.625rem !important;
+    overflow: hidden;
+
+    .card {
+      border: none;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-content: space-between;
+    }
+  }
+}
 
 :host:hover .card-img-overlay {
   top: 100%;

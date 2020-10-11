@@ -20,7 +20,7 @@ export class DialogService {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        // TODO
+        // TODO the possibility of adding a product order in the future
       }
     });
   }

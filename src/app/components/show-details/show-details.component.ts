@@ -14,5 +14,4 @@ export class ShowDetailsComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: ArticleData) {
     this.item = data;
   }
-
 }

@@ -14,3 +14,15 @@
   flex-direction: column;
   align-content: center;
 }
+
+@media (min-width: 100px) {
+  .card-deck {
+    margin-bottom: 0;
+    margin-left: 15px;
+    flex-flow: row wrap;
+
+    &.empty-list {
+      flex-direction: column;
+    }
+  }
+}
